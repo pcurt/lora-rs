@@ -61,7 +61,5 @@ pub trait PhyRxTx: Sized {
     async fn rx_single(&mut self, buf: &mut [u8]) -> Result<RxStatus, Self::PhyError>;
 
     /// Puts the radio into a low-power mode
-    async fn low_power(&mut self) -> Result<(), Self::PhyError> {
-        Ok(())
-    }
+    async fn low_power(&mut self) -> Result<(), Self::PhyError>;
 }

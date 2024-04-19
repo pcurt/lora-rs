@@ -156,6 +156,12 @@ where
             Err(Error::NoRxParams)
         }
     }
+    async fn low_power(&mut self) -> Result<(), Self::PhyError> {
+        match self.lora.sleep(false).await {
+            Ok(()) => Ok(()),
+            Err(err) => Err(err.into()),
+        }
+    }
 }
 
 impl RxMode {
