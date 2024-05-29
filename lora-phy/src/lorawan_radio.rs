@@ -157,10 +157,7 @@ where
         }
     }
     async fn low_power(&mut self) -> Result<(), Self::PhyError> {
-        match self.lora.sleep(false).await {
-            Ok(()) => Ok(()),
-            Err(err) => Err(err.into()),
-        }
+        self.lora.sleep(false).await.map_err(|e| e.into())
     }
 }
 

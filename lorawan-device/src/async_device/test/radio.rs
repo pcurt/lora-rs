@@ -85,9 +85,6 @@ impl PhyRxTx for TestRadio {
             Msg::Timeout => Ok(RxStatus::RxTimeout),
         }
     }
-    async fn low_power(&mut self) -> Result<(), Self::PhyError> {
-        Ok(())
-    }
 }
 
 impl Timings for TestRadio {
